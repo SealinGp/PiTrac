@@ -1,0 +1,15 @@
+Designator,Value,Footprint,Quantity
+U2,H11L1,DIP-6_W7.62mm,1
+U3,H11L1,DIP-6_W7.62mm,1
+Sys2_Conn1,~,PinHeader_1x03_P2.54mm_Vertical,1
+Sys1_Conn1,~,PinHeader_1x04_P2.54mm_Vertical,1
+U5,~,PCB Dual MOS Driver Module,1
+R2,270R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1
+R3,270R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1
+Strobe1,~,TestPoint_THTPad_2.5x2.5mm_Drill1.2mm,1
+Shutter1,~,TestPoint_THTPad_2.5x2.5mm_Drill1.2mm,1
+Sys1_GND1,~,TestPoint_THTPad_2.5x2.5mm_Drill1.2mm,1
+U4,74HC04,DIP-14_W7.62mm_Socket,1
+R1,330R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1
+R4,330R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1
+J3,~,Micro_USB_B_Female,1
