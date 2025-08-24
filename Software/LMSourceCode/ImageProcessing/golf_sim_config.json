@@ -5,7 +5,7 @@
             "kLogIntermediateSpinImagesToFile": "0",
             "kLogWebserverImagesToFile": "1",
             "kLogDiagnosticImagesToUniqueFiles": "1",
-            "kLinuxBaseImageLoggingDir": ".\/",
+            "kLinuxBaseImageLoggingDir": "\/home\/golf\/share\/LM_Shares\/Images\/",
             "kPCBaseImageLoggingDir": "D:\\GolfSim\\LM\\Images\\"
         },
         "modes": {
@@ -146,7 +146,7 @@
         },
         "user_interface": {
             "kWebServerTomcatShareDirectory": "WebShare",
-            "kWebServerShareDirectory": "USE CMD LINE - Example:  --web_server_share_dir \/home\/PiTracUser\/LM_Shares\/Images\/",
+            "kWebServerShareDirectory": "\/home\/golf\/share\/LM_Shares\/WebShare\/",
             "kWebServerResultBallExposureCandidates": "ball_exposure_candidates",
             "kWebServerResultSpinBall1Image": "spin_ball_1_gray_image1",
             "kWebServerResultSpinBall2Image": "spin_ball_2_gray_image1",
@@ -372,19 +372,19 @@
             "kSkipSpinCalculation": "0",
             "GSPro": {
                 "kGSProComment": "USE CMD LINE OPTION - Example:  --gspro_host_address 10.0.0.47",
-                "kGSProConnectAddress": "",
+                "kGSProConnectAddress": "localhost",
                 "kGSProConnectPort": "0921"
             },
             "E6": {
                 "kE6Comment": "USE CMD LINE - Exampe:  --e6_host_address 10.0.0.29",
-                "kE6ConnectAddress": "",
+                "kE6ConnectAddress": "localhost",
                 "kE6ConnectPort": "2483",
                 "kE6InterMessageDelayMs": "50"
             }
         },
         "club_data": {
             "kEnableClubImages": "0",
-            "kClubImageOutputDir": "\/home\/PiTracUserName\/LM_Shares\/Images\/",
+            "kClubImageOutputDir": "\/home\/golf\/share\/LM_Shares\/Images\/",
             "kNumberFramesToSaveBeforeHit": "6",
             "kNumberFramesToSaveAfterHit": "8",
             "kClubImageWidthPixels": "340",

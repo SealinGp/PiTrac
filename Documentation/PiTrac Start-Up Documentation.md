@@ -4,26 +4,26 @@ If you are at this point, you should have PiTrac compiled on both Pi’s, your e
 
 **Start-up and Sanity Checks:**
 
-1. Ensure that each account that you will run PiTrac in has the PITRAC\_ROOT set to the directory above the “ImageProcessing” directory where the meson.build file exists, as well as setting the other required environment variables. A typical .zshrc file in your user’s root directory will look like:  
+1. Ensure that each account that you will run PiTrac in has the PITRAC_ROOT set to the directory above the “ImageProcessing” directory where the meson.build file exists, as well as setting the other required environment variables. A typical .zshrc file in your user’s root directory will look like:  
    ```  
-   export PITRAC\_ROOT=/Dev/PiTrac/Software  
+   export PITRAC_ROOT=/Dev/PiTrac/Software  
    \# Note that the \~ symbol is only expanded by the shell, so  
    \# may not work if it is pulled directly into PiTrac code. However,  
    \# these variables are expanded before being injected into PiTrac  
    \# via command-line parameters  
-   export PITRAC\_ROOT=/mnt/PiTracShare/Dev/PiTrac/Software/LMSourceCode  
-   export PITRAC\_BASE\_IMAGE\_LOGGING\_DIR=\~/LM\_Shares/Images/  
-   export PITRAC\_WEBSERVER\_SHARE\_DIR=\~/LM\_Shares/WebShare/  
-   export PITRAC\_MSG\_BROKER\_FULL\_ADDRESS=tcp://10.0.0.41:61616  
+   export PITRAC_ROOT=/mnt/PiTracShare/Dev/PiTrac/Software/LMSourceCode  
+   export PITRAC_BASE_IMAGE_LOGGING_DIR=\~/LM_Shares/Images/  
+   export PITRAC_WEBSERVER_SHARE_DIR=\~/LM_Shares/WebShare/  
+   export PITRAC_MSG_BROKER_FULL_ADDRESS=tcp://10.0.0.41:61616  
    \# Only uncomment and set the following if connecting to the  
    \# respective golf sim (e.g., E6/TruGolf, GSPro, etc.)  
-   \#export PITRAC\_E6\_HOST\_ADDRESS=10.0.0.29  
-   \#export PITRAC\_GSPRO\_HOST\_ADDRESS=10.0.0.29   
+   \#export PITRAC_E6_HOST_ADDRESS=10.0.0.29  
+   \#export PITRAC_GSPRO_HOST_ADDRESS=10.0.0.29   
    ```  
-2. Ensure the golf\_sim\_config.json file is correctly set up.  If not sure, follow the [Configuration File documentation](https://github.com/jamespilgrim/PiTrac/blob/main/Documentation/PiTrac%20configuration%20and%20the%20golf_sim_config.json%20file.md).  
+2. Ensure the golf_sim_config.json file is correctly set up.  If not sure, follow the [Configuration File documentation](https://github.com/jamespilgrim/PiTrac/blob/main/Documentation/PiTrac%20configuration%20and%20the%20golf_sim_config.json%20file.md).  
 3. Check that the executable at least runs by itself:  
-   1. cd $PITRAC\_ROOT/ImageProcessing  
-   2. build/pitrac\_lm \--help  
+   1. cd $PITRAC_ROOT/ImageProcessing  
+   2. build/pitrac_lm \--help  
    3. (the executable should show the command-line parameters)
 
 **Check the Strobe Light and Camera Triggering:**
@@ -31,7 +31,7 @@ If you are at this point, you should have PiTrac compiled on both Pi’s, your e
 1. Problems can sometimes exist in the pathway from the Pi 1 to the Pi 2 Camera and the Strobe Assembly (though the Connector Board).  For example, sometimes the ribbon cable may be loose or mis-connected from the Pi 1 to the Connector Board.  So a few initial checks are good to perform before going further…  
 2. Position the PiTrac so that you can see into the IR LEDs through the LED lens (the small array of square LEDs should be visible)  
 3. Run a strobe-light test  
-   1. cd $PITRAC\_ROOT/ImageProcessing  
+   1. cd $PITRAC_ROOT/ImageProcessing  
    2. ./RunScripts/runPulseTest.sh  
    3. The above script will periodically send a series of short “on” pulses to the LED strobe light.  Due to the IR wavelengths used by the LED (at least the one on the parts list), you should be able to see very short groups of dark-reddish pulses in the LED lens.  
       1. **NOTE** \- Just in case, look at the LED from at least a couple feet away, especially if you are using a higher-power LED.  
@@ -44,7 +44,7 @@ If you are at this point, you should have PiTrac compiled on both Pi’s, your e
 7. Camera 2 Shutter Triggering  
    1. When the system is running normally, the shutter for Camera 2 is triggered by a pulse from the Pi 1\.  The correct functioning of this signal pathway should be confirmed before starting the system in full.  
    2. To check the triggering, we will set the Pi 2 camera in an “external” triggering mode, where its shutter is controlled by the XTR signal that is sent to the camera from Pi 1 through the connector board.  
-   3. On the Pi 2, cd $PITRAC\_ROOT/ImageProcessing  
+   3. On the Pi 2, cd $PITRAC_ROOT/ImageProcessing  
    4. sudo ./CameraTools/setCameraTriggerExternal.sh  
    5. rpicam-hello  
    6. ./RunScripts/runCam2Still.sh  
@@ -53,10 +53,10 @@ If you are at this point, you should have PiTrac compiled on both Pi’s, your e
       1. /RunScripts/runPulseTest.sh  
    9. As soon as the Pi 1 script starts sending pulses to the Camera 2 (as well as pulses to the LED strobe array), the Camera 2 program that is running should take a picture.  Of course, the resulting picture is likely to be pretty dark if you have the IR filter on it.  
    10. Finally, return the triggering to internal on the Pi 2:  
-       1. $PITRAC\_ROOT/CameraTools/setCameraTriggerInternal.sh  
+       1. $PITRAC_ROOT/CameraTools/setCameraTriggerInternal.sh  
 8. Full System Startup  
    1. To run PiTrac, just start the runCam1.sh on Pi 1 and runCam2.sh on Pi 2\.  Start the Pi 2 executable first so that it’s ready to take a picture as soon as Pi 1 determines the ball has shown up.    
-   2. The executables should be run with \--logging\_level=info or higher (e.g., warning).  Setting the executables at DEBUG or TRACE may slow the system down so much that it will not reliably take the images quickly enough to catch the flight of the golf ball.  However, the information from trace-level is often still useful.  
+   2. The executables should be run with \--logging_level=info or higher (e.g., warning).  Setting the executables at DEBUG or TRACE may slow the system down so much that it will not reliably take the images quickly enough to catch the flight of the golf ball.  However, the information from trace-level is often still useful.  
    3. For problems, please see the still-under-construction [troubleshooting guide](https://github.com/jamespilgrim/PiTrac/blob/main/Documentation/PiTrac%20Troubleshooting.md).
 
   
