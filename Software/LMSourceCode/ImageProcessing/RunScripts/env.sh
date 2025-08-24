@@ -1,6 +1,7 @@
 #!/bin/bash
-# Usage: source .env [master|slave] [slave_ip]
-# Default: source .env master 192.168.31.126
+# Usage: source env.sh [master|slave] [slave_ip]
+# Default: source env.sh master 192.168.31.126
+# Example: source env.sh slave
 
 MODE=${1:-master}
 SLAVE_IP=${2:-192.168.31.126}
