@@ -414,6 +414,7 @@
             "kAutomatedTestToleranceVLA": "2",
             "kAutomatedTestToleranceBackSpin": "250",
             "kAutomatedTestToleranceSideSpin": "300",
+            "kCamera2StrobedEnvironmentGain": "4.0",
             "Externally strobed means there is another strobing source (another LM) that is being used along with PiTrac": "1",
             "kExternallyStrobedEnvNumber_bits_for_fast_on_pulse_": "5",
             "kExternallyStrobedEnvFilterImage": "0",
